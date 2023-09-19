@@ -1,0 +1,5 @@
+displayName = Luck Reader
+author = Tacomancer
+version = 1.0.1
+includeSource = true
+buildIgnore = .vs\*, .git\*, ignore\*, .gitignore, .gitattributes, *.MD, *.csproj, *.user, obj\*, bin\*, *.sln

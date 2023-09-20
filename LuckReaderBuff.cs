@@ -40,7 +40,7 @@ namespace LuckReader
         {
             if (!ModContent.GetInstance<Client>().doPlayerBuff && player.HasBuff(Type))
             {
-                player.DelBuff(Type);
+                player.DelBuff(buffIndex);
                 buffIndex--;
             }
         }

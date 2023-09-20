@@ -1,13 +1,18 @@
-Luck Reader displays a breakdown of your luck stat in
+Luck Reader displays a breakdown of your Luck stat in
 a disableable buff.
 
 =Displays:>
-Total, Torch, Ladybug, Lantern, Potion, & Gnome lucks
+Total, Torch, Ladybug, Lantern, Potion,
+- Pearl, Equip, Coin, & Gnome lucks
 
 =Includes:>
 1 Buff (+2 configs)
 1 ModPlayer
 
 =Changelog:>
+1.0.2 Releasee:
+- Updated to 1.4.4
+- Added Equipment, Pearl, & Coin Lucks to display
+
 1.0.0 Release:
 - Released

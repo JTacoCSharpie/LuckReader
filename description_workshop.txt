@@ -1,12 +1,14 @@
 [i]Luck Reader displays a breakdown of each factor in your luck stat in a configurable buff.[/i]
 
 [b]=Displays:>[/b][list]
-[*] Total, Torch, Ladybug, Lantern, Potion, & Gnome lucks[/list]
+[*] Total, Torch, Ladybug, Lantern, Potion, Pearl, Equip', Coin, & Gnome lucks[/list]
 
 [b]=Includes:>[/b][list]
 [*] 1 Buff (+2 configs)
 [*] 1 ModPlayer[/list]
 
-[b]=Changelog:>[/b]
-1.0.0 Release:
-- Released
+-[b]Changelog[/b]->
+See the workshop page's [url=https://steamcommunity.com/sharedfiles/filedetails/changelog/2873020090]Change Notes[/url] or the in-game description.
+
+
+Older versions are also available through branches on [url=https://github.com/JTacoCSharpie/LuckReader]Github[/url]

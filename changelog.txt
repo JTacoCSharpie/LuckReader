@@ -1,0 +1,3 @@
+﻿
+* Updated to 1.4.4
+* Added Equipment, Pearl, & Coin Lucks to buff display

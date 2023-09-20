@@ -1,9 +1,4 @@
 using System.ComponentModel;
-using Terraria;
-using Terraria.ID;
-using Terraria.GameContent;
-using Terraria.GameContent.Events;
-using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
 
 namespace LuckReader
@@ -12,15 +7,11 @@ namespace LuckReader
 	{
 		public override ConfigScope Mode => ConfigScope.ClientSide;
 
-        [Header("Disable Features")]
-        [Label("Display Luck Buff")]
-        [Tooltip("Default: Enabled")]
+        [Header("$Mods.LuckReader.Configs.Headers.DisableFeatures")]
         [DefaultValue(true)]
             public bool doPlayerBuff;
 
-        [Header("Tune Features")]
-        [Label("Interval to update Luck, in game-ticks")]
-        [Tooltip("1 = every 2 ticks - Default: 5")]
+        [Header("$Mods.LuckReader.Configs.Headers.TuneFeatures")]
         [Range(1, 60)]
         [DefaultValue(5)]
             public int checkInterval;

@@ -1,30 +1,13 @@
-using System;
 using Terraria;
-using Terraria.ID;
-using Terraria.GameContent;
+using Terraria.GameContent.Events;
 using Terraria.ModLoader;
 
 namespace LuckReader
 {
-	public class LuckReader : Mod
-	{
-	}
+	public class LuckReader : Mod {}
+
 	public static class ReaderMethods
     {
-		public static string FormatDigits(float num)
-		{
-			if (num % 1 == 0)
-			{
-				return num.ToString();
-			}
-			else // If the decimals are non-zero
-			{
-				float trim = MathF.Abs(num); // Remove minus sign as a factor
-				int height = (int)MathF.Log10(trim) + 1; // Get the numbers before the decimal place
-				int size = Math.Clamp(num.ToString().Length - (height + 1), 0, 2); // Cap the numbers after decimal to 2, while removing the period
-				return string.Format("{0:F" + size + "}", num);
-			}
-		}
 
 		/// <summary> Formula re-used from Terraria 1.4.4 </summary>
 		public static float GetLadyBugLuck(Player player)
@@ -41,46 +24,44 @@ namespace LuckReader
 		}
 
 		/// <summary> Formula re-used from Terraria 1.4.4 </summary>
-		/*public static float CalculateCoinLuck(Player player)
+		public static float GetCoinLuck(Player player)
 		{
-			double coinLuck = 0f;
-			if (coinLuck == 0f)
-			{
-				return 0f;
-			}
-			if (coinLuck > 249000f)
-			{
-				return 0.2f;
-			}
-			if (coinLuck > 24900f)
-			{
-				return 0.175f;
-			}
-			if (coinLuck > 24900f)
-			{
-				return 0.175f;
-			}
-			if (coinLuck > 2490f)
-			{
-				return 0.15f;
-			}
-			if (coinLuck > 249f)
-			{
-				return 0.125f;
-			}
-			if ((double)coinLuck > 24.9)
-			{
-				return 0.1f;
-			}
-			if ((double)coinLuck > 2.49)
-			{
-				return 0.075f;
-			}
-			if ((double)coinLuck > 0.249)
-			{
-				return 0.05f;
-			}
-			return 0.025f;
-		}*/
+			double coinLuck = (double)player.coinLuck;
+            return coinLuck switch
+            {
+                0f => 0f,
+                > 249000f => 0.2f,
+                > 24900f => 0.175f,
+                > 2490f => 0.15f,
+                > 249f => 0.125f,
+                > 24.9 => 0.1f,
+                > 2.49 => 0.075f,
+                > 0.249 => 0.05f,
+                _ => 0.025f
+            };
+        }
+
+		public static float[] GetLucks(Player Player)
+        {
+			float [] lucks = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            lucks[0] = GetLadyBugLuck(Player) * 0.2f;
+            lucks[1] = Player.torchLuck * 0.2f;
+            lucks[2] = Player.luckPotion * 0.1f;
+            lucks[3] = (LanternNight.LanternsUp) ? 0.3f : 0;
+            lucks[4] = (Player.HasGardenGnomeNearby) ? 0.2f : 0;
+            lucks[5] = GetCoinLuck(Player);
+            lucks[6] = (Player.usedGalaxyPearl) ? 0.03f : 0;
+            lucks[7] = Player.equipmentBasedLuckBonus;
+
+            lucks[lucks.Length - 2] = 0;
+            for (int i = 0; i < 8; i++)
+            {
+                lucks[lucks.Length - 2] += lucks[i];
+            }
+            lucks[lucks.Length - 1] = lucks[lucks.Length - 2] - Player.luck;
+
+            return lucks;
+        }
+
 	}
 }

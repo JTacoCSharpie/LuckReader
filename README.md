@@ -1,4 +1,4 @@
-﻿﻿# LuckReader  
+﻿# LuckReader  
 LuckReader gives a buff that shows you your luck stat & it's individual components in the description
 
 ## Lucks shown

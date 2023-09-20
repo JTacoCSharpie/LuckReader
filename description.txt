@@ -10,7 +10,7 @@ Total, Torch, Ladybug, Lantern, Potion,
 1 ModPlayer
 
 =Changelog:>
-1.0.2 Releasee:
+1.0.2 Release:
 - Updated to 1.4.4
 - Added Equipment, Pearl, & Coin Lucks to display
 
